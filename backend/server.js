@@ -12,6 +12,8 @@ import cookieParser from 'cookie-parser'
 // import routers
 import { router as indexRouter } from './routes/index.js'
 import { router as userRouter } from './routes/user.route.js'
+import { router  as profileRouter  } from './routes/profile.route.js'
+import { router as postRouter } from './routes/post.router.js'
 
 // create the express app
 const app = express()
@@ -29,6 +31,8 @@ app.use(
 // mount imported routes
 app.use('/', indexRouter)
 app.use('/api/v1/user' , userRouter)
+app.use("/api/v1/profile", profileRouter)
+app.use("/api/v1/post" , postRouter)
 
 
 

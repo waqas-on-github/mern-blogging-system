@@ -1,4 +1,5 @@
 import { idSchema } from "../validationschema/userValidationSchema.js";
+import CustomError from "../utils/CustomError.js";
 const validateById = (req) => {
 
     const { id } = req.params;

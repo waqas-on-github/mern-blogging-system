@@ -28,12 +28,13 @@ const createAccount = asyncHandler(async (req, res) => {
 
   // call create user funcation
   const createdUser = await createUserInDatabase(senitizeData, hashedPass);
-  // generate and  set token
+
+
   //for saftey
   createdUser.password = undefined;
   // send verification email to user 
   const verificationEmail = await sendVerificationEmail(createdUser, req)
-
+   
 
   res.status(201).json({
     success: true,

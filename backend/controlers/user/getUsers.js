@@ -3,9 +3,9 @@ import CustomError from "../../utils/CustomError.js";
 import asyncHandler from "../../utils/asyncHandler.js";
 
 
-const getProfiles = asyncHandler(async(req, res) => {
+const getUsers = asyncHandler(async(req, res) => {
 
-    const userData =  await Prisma.user.findMany()
+    const userData =  await Prisma.user.findMany({})
 
     if(!userData) throw new CustomError("userdata not found " , 401 , "getprofile line 10")
 
@@ -17,5 +17,5 @@ const getProfiles = asyncHandler(async(req, res) => {
 })
 
 export {
-    getProfiles
+    getUsers
 }

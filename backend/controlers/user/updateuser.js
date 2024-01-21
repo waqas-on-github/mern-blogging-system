@@ -6,7 +6,7 @@ import CustomError from "../../utils/CustomError.js";
 import { sanitizeData } from "../../helpers/sanitizeData.js";
 import  {hashPass } from "../../helpers/hashPassword.js";
 
-const updateProfile = asyncHandler(async(req, res) => {
+const updateUser = asyncHandler(async(req, res) => {
 
    const file = req?.file 
   // todo do this error handling after  implementing front end avatar upload feature 
@@ -60,7 +60,7 @@ const  checkUserExistsById = async(userId) => {
 }
 
 // update user profile by id 
-const updateProfileById = async(data , pass, userId ) => {
+const updateUserById = async(data , pass, userId ) => {
 
    
   console.log({...data , password: pass });
@@ -89,7 +89,7 @@ const updateProfileById = async(data , pass, userId ) => {
 
 
 export  {
-   updateProfile ,
+   updateUser ,
    checkUserExistsById, 
-   updateProfileById
+   updateUserById
 }

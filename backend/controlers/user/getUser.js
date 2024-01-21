@@ -4,7 +4,7 @@ import {getOneUser} from '../../helpers/getProfile.js'
 
 
 
-const getProfile = asyncHandler(async(req, res ) => {
+const getUser = asyncHandler(async(req, res ) => {
 
   const userId = req?.user?.id ||  req.params.id 
 
@@ -30,5 +30,5 @@ const getProfile = asyncHandler(async(req, res ) => {
 
 
 export {
-    getProfile
+    getUser
 }

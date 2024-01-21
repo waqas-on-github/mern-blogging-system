@@ -50,11 +50,12 @@ model Profile {
 
 model Post {
   id        Int         @id @default(autoincrement())
-  title     String
+  title     String      @unique()
   text      String
-  category  String
+  category  Category
   profileId Int 
   profile   Profile     @relation(fields: [profileId], references: [id])
+  comments   Comments[]
 }
 
 model Comments {
@@ -62,4 +63,32 @@ model Comments {
   text     String
   authorId Int 
   profile  Profile    @relation(fields: [authorId], references: [id])
+  postId   Int 
+  post     Post @relation(fields: [postId] , references: [id])
+}
+
+
+
+enum Category {
+
+  Lifestyle
+  Travel
+  Technology
+  Fashion
+  FoodAndCooking
+  Parenting
+  PersonalFinance
+  HomeDecor
+  Fitness
+  BeautyAndSkincare
+  CareerAndProfessionalDevelopment
+  Education
+  BookReviews
+  PersonalDevelopment
+  Photography
+  Entertainment
+  DIYAndCrafts
+  Gaming
+  Pets
+  SocialIssues
 }
